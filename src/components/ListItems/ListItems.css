@@ -24,3 +24,14 @@
     margin-bottom: 0;
     padding-left: 55px;
 }
+
+.logo{
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.t-logo{
+    padding: 0;
+    text-align: center;
+}

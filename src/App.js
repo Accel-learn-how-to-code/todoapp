@@ -16,31 +16,50 @@ class App extends Component {
   };
 
   finishTask(item){
-    return (event) => {
-      //const { listItems } = this.state;
-      //const index = listItems.indexOf(item);
-      // this.setState({
-      //   list: [
-      //     ...listItems.slice(0, index),
-      //   {
-      //     ...item,
-      //     isDone: true
-      //   },
-      //   ...listItems.slice(index + 1)
-      //   ]
-      // })  
+      const  listItems  = this.state.list;
+      const index = listItems.indexOf(item);
+      this.setState({
+        list: [
+          ...listItems.slice(0, index),
+        {
+          ...item,
+          isDone: true
+        },
+        ...listItems.slice(index + 1)
+        ]
+      })  
+  }
 
-      //In ra items từ component child được nhưng không lấy được this.state của class hiện tại
-      console.log(item);
-    };
+  addTask(event){
+    if(event.keyCode === 13){
+      let text = event.target.value;
+      text = text.trim();
+      if(!text)
+        return;
+      const  listItems  = this.state.list;
+      const id = listItems.length + 1;
+      let newTask = {
+        id,
+        content: text,
+        isDone: false
+      };
+      this.setState({
+        list:[
+          ...listItems,
+          newTask
+        ]
+      });
+    }
+    //console.log(event.keyCode);
+    //console.log(event.target.value);
   }
 
   render() {
     const {list} = this.state;
     return ([
       <Header/>,
-      <ListItems list={list} finishTask={this.finishTask}/>,
-      <Modal/>
+      <ListItems list={list} finishTask={(item) => this.finishTask(item)}/>,
+      <Modal addTask={(event) => this.addTask(event)}/>
     ]);
   };
 }

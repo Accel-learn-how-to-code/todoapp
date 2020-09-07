@@ -2,9 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    bottom: 15px;
-    left: 50%;
 }
 
 .modal {
@@ -24,8 +21,6 @@
     /* Full height */
     overflow: auto;
     /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
     /* Black w/ opacity */
 }
@@ -34,17 +29,14 @@
     display: block;
 }
 
-.closeModal {
-    display: none;
-}
-
 /* Modal Content */
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px 20px 50px 20px;
+    padding: 20px;
     border: 1px solid #888;
-    width: 70%;
+    width: 50%;
+    border-radius: 20px;
 }
 
 /* The Close Button */
@@ -53,24 +45,22 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.accept {
-    color: #ffffff;
-    background-color: rgb(13, 13, 255);
-}
-
-#myBtn {
+.myBtn {
     padding: 14px 17px;
-    ;
     color: #000000;
     border: 2px solid #6cc2ce;
     border-radius: 100%;
-    background-color: ffffff;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
 }
 
-#myBtn:hover,
-#myBtn:focus {
+.openBtn:hover,
+.openBtn:focus {
     -webkit-box-shadow: -1px -1px 61px 14px rgba(255, 255, 255, 1);
     -moz-box-shadow: -1px -1px 61px 14px rgba(255, 255, 255, 1);
     box-shadow: -1px -1px 61px 14px rgba(255, 255, 255, 1);
@@ -79,14 +69,19 @@
     transition-duration: 0.5s;
 }
 
-.decline {
-    background-color: red;
-    color: #ffffff;
+.closeBtn{
+    -webkit-box-shadow: -1px -1px 61px 14px rgba(255, 255, 255, 1);
+    -moz-box-shadow: -1px -1px 61px 14px rgba(255, 255, 255, 1);
+    box-shadow: -1px -1px 61px 14px rgba(255, 255, 255, 1);
+    outline: none;
+    cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.inputTask{
+    outline: none;
+    font-size: 1.5em;
+    color: rgb(68, 68, 68);
+    border: none;
+    padding: 10px;
+    width: 85%;
 }

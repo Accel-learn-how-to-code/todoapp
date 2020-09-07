@@ -22,20 +22,24 @@ class Modal extends Component{
     render(){
         return(
             <div className="modal-container">
-                <button id="myBtn" onClick={() => this.openModal()}>
-                    { this.state.modal ? 'X' : '+'}
+                <button class="myBtn openBtn" onClick={() => this.openModal()}>
+                    +
                 </button>
                 <div id="myModal" className={classNames('modal', { openModal: this.state.modal})}>
                     <div className="modal-content">
-                        <span className="close" onClick={this.closeModal}>X</span>
-                        <p>Some text in the Modal..</p>
-                        <button className="close decline" onClick={() => this.closeModal()}>
-                            Decline
-                        </button>
-                        <button className="close accept" onClick={() => this.closeModal()}>
-                            Accept
-                        </button>
+                        <span className="close" onClick={() => this.closeModal()}>X</span>
+                        <input  className="inputTask" 
+                                placeholder="Type some things..." 
+                                onKeyUp={(event) => {
+                                                        this.props.addTask(event);
+                                                        if(event.keyCode === 13){
+                                                            this.closeModal();
+                                                        }
+                                                    }}/>
                     </div>
+                    <button class="myBtn closeBtn" onClick={() => this.closeModal()}>
+                        X
+                    </button>
                 </div>
             </div>
         );
